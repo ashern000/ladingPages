@@ -36,7 +36,7 @@ header{
     height: auto;
     background-color: transparent;
     position: fixed;
-    z-index: 3;
+    z-index: 6;
 }
 
 nav{
@@ -464,7 +464,7 @@ footer .text h1{
     top: 10%;
 }
 
-footer .text .icons-div{
+footer .text .wrapper-icons{
     display: flex;
     gap: 30px;
     flex-direction: column;
@@ -473,7 +473,47 @@ footer .text .icons-div{
     position: absolute;
     left: 10%;
     height: 50%;
+    width: 80%;
 }
+
+footer .text .wrapper-icons .div-icons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    font-size: 1.25rem;
+    letter-spacing: 1.1px;
+    justify-content: space-evenly;
+    
+}
+
+footer .text .wrapper-icons .div-icons:nth-child(1) .icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-image: url("./icons8-whatsapp-144.png");
+    background-size: contain;
+}
+
+
+footer .text .wrapper-icons .div-icons:nth-child(2) .icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-image: url("./icons8-instagram-144.png");
+    background-size: contain;
+}
+
+
+
+footer .text .wrapper-icons .div-icons:nth-child(3) .icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-image: url("./icons8-facebook-novo-144.png");
+    background-size: contain;
+}
+
 
 footer  .image{
     width:51%;
@@ -577,16 +617,18 @@ footer .image .googleMaps iframe{
         height: 200px;
     }
 
+
     main .firstGoal h1, main .firstGoal p, main .secondGoal h1, main .secondGoal p, main .thirdGoal h1, main .thirdGoal p{
         width: 90%;
     }
 
     main .firstGoal h1, main .secondGoal h1, main .thirdGoal h1{
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     main .firstGoal p, main .secondGoal p, main .thirdGoal p{
-        font-size: 1.15rem;
+        font-size: 1.1rem;
+        line-height: 32px;
     }
 
     main .about .text{
@@ -602,14 +644,34 @@ footer .image .googleMaps iframe{
         flex-direction: column;
     }
 
+    footer .text .wrapper-icons .div-icons .icon{
+        width: 40px;
+        height: 40px;
+    }
+
     footer  .text, footer .image, footer .image::before{
         width: 100%;
     }
 
+    footer .image{
+        height: 70% !important;
+    }
     footer .text{
-        height: 15vh;
+        height: 30%;
+        justify-content: center;
     }
 
+
+    footer .text .wrapper-icons{
+        flex-direction: row;
+        gap: 10px;
+        top:35%;
+    }
+
+    footer .text .wrapper-icons .div-icons{
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media (min-width:577px) and (max-width:768px){
@@ -634,6 +696,8 @@ footer .image .googleMaps iframe{
     main .presentation p:nth-child(1){
         font-size: 3.8rem;
     }
+
+    
 
     main .firstGoal h1, main .secondGoal h1, main .thirdGoal h1{
         font-size: 3rem;
