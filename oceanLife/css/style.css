@@ -1,763 +1,815 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 7.5px;
+  border-radius: 40px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 40px;
+  background-color: rgb(5, 189, 173);
+}
+
+::-webkit-scrollbar-track-piece {
+  border-radius: 30px;
+  background-color: rgba(4, 78, 68, 0.863);
+}
+
+*::selection {
+  background-color: rgb(3, 161, 161);
+}
+
+header {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  position: fixed;
+  z-index: 6;
+}
+
+nav {
+  height: 7.5vh;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  color: white;
+  align-items: center;
+  text-align: center;
+}
+
+nav span {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav span svg {
+  width: 40px;
+  height: 40px;
+}
+
+nav ul {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  color: white;
+}
+
+nav ul li a {
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+}
+
+nav ul li span {
+  height: 1.45px;
+  transform: scaleX(0);
+  transition: 0.75s all;
+  width: 100%;
+  position: relative;
+}
+
+nav ul li:hover span {
+  height: 1.45px;
+  transform: scaleX(1.25);
+  background-color: rgb(0, 148, 158);
+}
+
+nav .span-button {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav span button {
+  width: 70%;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 20px;
+  font-size: 0.95rem;
+  border: 1px solid rgba(9, 138, 161, 0.678);
+  padding: 4.5% 0;
+  transition: 0.45s;
+}
+
+nav span button:hover {
+  background-color: rgba(0, 0, 0, 0.295);
+  border: 1px solid rgba(9, 138, 161, 0.975);
+}
+
+main {
+  width: 100%;
+}
+
+main .presentation {
+  background-image: url("./deepOcean.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 8.5%;
+  position: relative;
+  z-index: 1;
+}
+
+main .presentation::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(1, 25, 26, 0.41),
+    rgba(0, 0, 0, 0.51)
+  );
+  background-attachment: fixed;
+  position: absolute;
+  z-index: -1;
+}
+
+main .presentation .fish {
+  width: 310px;
+  height: 310px;
+  background: url("betta.webp");
+  border-radius: 100%;
+  background-clip: border-box;
+  background-size: cover;
+  background-position: 20%;
+  background-repeat: no-repeat;
+  z-index: 4;
+  animation: rotate 1.45s 1 alternate linear;
+  transform-style: preserve-3d;
+}
+
+main .presentation .fish:hover {
+  animation: rotate 1.5s infinite linear alternate;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+main .presentation p:nth-child(1) {
+  color: white;
+  z-index: 2;
+  font-size: 5.75rem;
+  margin-top: -3.5%;
+}
+
+main .presentation p:nth-child(2) {
+  font-size: 1.45rem;
+  margin-top: -2.5%;
+  text-align: center;
+  z-index: 2;
+  color: white;
+}
+
+main .goals {
+  width: 100%;
+  height: 100vh;
+  background-color: #063941;
+  background-image: linear-gradient(
+    168deg,
+    #063941 0%,
+    #052b31 33%,
+    #00141e 66%,
+    #00090e 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+main .goals .balls {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  z-index: 2;
+  color: white;
+  background-color: rgba(5, 104, 161, 0.5);
+  border-radius: 50%;
+  position: relative;
+  border: 1px solid rgba(9, 161, 148, 0.1);
+}
+
+main .goals .balls a {
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .goals .balls a p {
+  z-index: 5;
+  padding: 100px;
+  font-size: 1.55rem;
+  transition: 1.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+  position: absolute;
+}
+
+main .goals .balls a p:nth-child(2) {
+  position: absolute;
+  color: transparent;
+  transition: 1s ease-in-out;
+  padding: 10px;
+}
+
+main .goals .balls::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  position: absolute;
+}
+
+main .goals .balls:hover {
+  background-color: rgb(6, 150, 157);
+}
+
+main .goals .balls:hover a > p:nth-child(1) {
+  transition: 0.5s;
+  opacity: 0;
+  position: absolute;
+}
+
+main .goals .balls:hover a > p:nth-child(2) {
+  color: white;
+}
+
+main .firstGoal {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./oceanGoalOne.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: column;
+  line-height: 40px;
+  position: relative;
+  font-size: 1.85rem;
+  color: white;
+  z-index: 1;
+}
+
+main .firstGoal h1 {
+  width: 80%;
+  z-index: 3;
+  text-align: start;
+}
+
+main .firstGoal p {
+  z-index: 3;
+  width: 80%;
+  text-align: justify;
+}
+
+main .firstGoal::before {
+  width: 100%;
+  height: 100vh;
+  content: "";
+  position: absolute;
+  background-color: rgba(1, 25, 27, 0.651);
+}
+
+main .secondGoal {
+  width: 100%;
+  line-height: 40px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: column;
+  position: relative;
+  font-size: 1.85rem;
+  color: white;
+  z-index: 1;
+}
+
+main .secondGoal h1 {
+  width: 80%;
+  z-index: 3;
+  text-align: center;
+}
+
+main .secondGoal p {
+  z-index: 3;
+  width: 80%;
+  text-align: justify;
+}
+
+main .secondGoal::before {
+  width: 100%;
+  height: 100vh;
+  content: "";
+  position: absolute;
+  background-color: #063941;
+  background-image: linear-gradient(
+    299deg,
+    #05272c 0%,
+    #052b31 33%,
+    #00141e 66%,
+    #000000 100%
+  );
+}
+
+main .thirdGoal {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  line-height: 40px;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./oceanGoalTwo.webp");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  flex-direction: column;
+  position: relative;
+  font-size: 1.85rem;
+  color: white;
+  z-index: 1;
+}
+
+main .thirdGoal h1 {
+  width: 80%;
+  z-index: 3;
+  text-align: end;
+}
+
+main .thirdGoal p {
+  z-index: 3;
+  width: 80%;
+  text-align: justify;
+}
+
+main .thirdGoal::before {
+  width: 100%;
+  height: 100vh;
+  content: "";
+  position: absolute;
+  background-color: rgba(1, 25, 27, 0.76);
+}
+
+main .about {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+main .about .text {
+  width: 51%;
+  height: 100%;
+  display: flex;
+  font-size: 1.78rem;
+  line-height: 40px;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  text-align: justify;
+  background-color: #063941;
+  background-image: linear-gradient(
+    168deg,
+    #063941 0%,
+    #052b31 33%,
+    #00141e 66%,
+    #00090e 100%
+  );
+}
+
+main .about .text span {
+  width: 80%;
+  height: 70%;
+}
+
+main .about .image {
+  width: 49%;
+  height: 100%;
+  background-image: url("./waves.webp");
+  background-repeat: no-repeat;
+  color: white;
+
+  background-size: cover;
+  background-clip: content-box;
+  position: relative;
+  background-attachment: fixed;
 }
 
 
-html{
-    scroll-behavior: smooth;
+main .about .image::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  
+  background-color: rgba(2, 77, 80, 0.226);
 }
 
-::-webkit-scrollbar{
-    width: 7.5px;
-    border-radius: 40px;
-}
-
-
-::-webkit-scrollbar-thumb{
-    border-radius: 40px;
-    background-color: rgb(5, 189, 173);
-}
-
-::-webkit-scrollbar-track-piece{
-    border-radius: 30px;
-    background-color: rgba(4, 78, 68, 0.863);
-   
-}
-
-*::selection{
-    background-color: rgb(3, 161, 161);
-}
-
-header{
-    width: 100%;
-    height: auto;
-    background-color: transparent;
-    position: fixed;
-    z-index: 6;
-}
-
-nav{
-    height: 7.5vh;
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+main .about .image p{
+    display: none;
     color: white;
-    align-items: center;
-    text-align: center;
-}
-
-nav span{
-    width: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-nav span svg{
-    width: 40px;
-    height: 40px;
-}
-
-nav ul{
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    list-style: none;
-    color: white;
-}
-
-nav ul li a{
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
-nav ul li{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    width: auto;
-}
-
-nav ul li span{
-    height: 1.45px;
-    transform: scaleX(0);
-    transition: 0.75s all;
-    width: 100%;
-    position: relative;
-}
-
-nav ul li:hover span{
-    height: 1.45px;
-    transform: scaleX(1.25);
-    background-color: rgb(0, 148, 158);
-}
-
-nav .span-button{
-    width: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-nav span button{
-    width: 70%;
-    background-color: transparent;
-    color: white;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.03);
-    border-radius: 20px;
-    font-size: 0.95rem;
-    border: 1px solid rgba(9, 138, 161, 0.678);
-    padding: 4.5% 0;
-    transition: 0.45s;
-}
-
-nav span button:hover{
-    background-color: rgba(0, 0, 0, 0.295);
-    border: 1px solid rgba(9, 138, 161, 0.975);
-}
-
-main{
-    width: 100%;
-}
-
-main .presentation{
-    background-image: url("./deepOcean.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 8.5%;
-    position: relative;
-    z-index: 1;
-}
-
-main .presentation::after{
-    content: "";
-    width: 100%;
-    height: 100%;
-    background:linear-gradient(to bottom,  rgba(1, 25, 26, 0.41),  rgba(0, 0, 0, 0.51));
-    background-attachment: fixed;
-    position: absolute;
-    z-index: -1;
-}
-
-
-main .presentation .fish{
-    width: 310px;
-    height: 310px;
-    background:url("betta.webp");
-    border-radius: 100%;
-    background-clip: border-box;
-    background-size: cover;
-    background-position: 20%;
-    background-repeat: no-repeat;
-    z-index: 4;
-    animation: rotate 1.45s 1 alternate linear ;
-    transform-style: preserve-3d;
-}
-
-main .presentation .fish:hover{
-    animation: rotate 1.5s infinite linear alternate;
-}
-
-@keyframes rotate{
-    0%{
-        transform: rotateY(0deg) ;
-    
-    }
-
-    100%{
-        transform: rotateY(360deg);
-
-    }
-}
-
-main .presentation p:nth-child(1){
-    color: white;
-    z-index: 2;
-    font-size: 5.75rem;
-    margin-top: -3.5%;
-}
-
-main .presentation p:nth-child(2){
-    font-size: 1.45rem;
-    margin-top:-2.5% ;
-    text-align: center;
-    z-index: 2;
-    color: white;
-}
-
-main .goals{
-    width: 100%;
-    height: 100vh;
-    background-color: #063941;
-    background-image: linear-gradient(168deg, #063941 0%, #052b31 33%, #00141e 66%, #00090e 100%);
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;    
-}
-
-main .goals .balls{
-    width: 300px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition:0.5s;
-    z-index: 2;
-    color: white;
-    background-color: rgba(5, 104, 161, 0.5);
-    border-radius: 50%;
-    position: relative;
-    border: 1px solid rgba(9, 161, 148, 0.1);
-}
-
-main .goals .balls a{
-    width: 100%;
-    height: 100%;
-    color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-main .goals .balls a p{
-    z-index: 5;
-    padding: 100px;
-    font-size: 1.55rem;
-    transition: 1.5s cubic-bezier(0.39, 0.575, 0.565, 1);
-    position: absolute;
-}
-
-main .goals .balls a p:nth-child(2){
-    position: absolute;
-    color: transparent;
-    transition: 1s ease-in-out;
-    padding: 10px;
-}
-
-main .goals .balls::after{
-    content: "";
-    width: 100%;
-    height: 100%;
-    filter: blur(3px);
-    background-color: rgba(0,0,0,0.5);
-    border-radius: 50%;
-    position: absolute;
-}
-
-main .goals .balls:hover{
-    background-color: rgb(6, 150, 157);
-}
-
-main .goals .balls:hover a > p:nth-child(1){
-    transition: 0.5s;
-    opacity: 0;
-    position: absolute;
-}
-
-main .goals .balls:hover a > p:nth-child(2){
-    color: white;
-}
-
-main .firstGoal{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url("./oceanGoalOne.jpg");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    flex-direction: column;
-    line-height: 40px;
-    position: relative;
-    font-size: 1.85rem;
-    color: white;
-    z-index: 1;
-}
-
-main .firstGoal h1{
-    width: 80%;
-    z-index: 3;
-    text-align: start;
-}
-
-main .firstGoal p{
-    z-index: 3;
-    width: 80%;
-    text-align: justify;
-}
-
-main .firstGoal::before{
-    width: 100%;
-    height: 100vh;
-    content: "";
-    position: absolute;
-    background-color: rgba(1, 25, 27, 0.651);
-}
-
-main .secondGoal{
-    width: 100%;
-     line-height: 40px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    flex-direction: column;
-    position: relative;
-font-size: 1.85rem;
-    color: white;
-    z-index: 1;
-}
-
-main .secondGoal h1{
-    width: 80%;
-    z-index: 3;
-    text-align: center;
-}
-
-main .secondGoal p{
-    z-index: 3;
-    width: 80%;
-    text-align: justify;
-}
-
-main .secondGoal::before{
-    width: 100%;
-    height: 100vh;
-    content: "";
-    position: absolute;
-    background-color: #063941;
-    background-image: linear-gradient(299deg, #05272c 0%, #052b31 33%, #00141e 66%, #000000 100%);
-    
-}
-
-main .thirdGoal{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-     line-height: 40px;
-    justify-content: center;
-    align-items: center;
-    background-image: url("./oceanGoalTwo.webp");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    flex-direction: column;
-    position: relative;
-    font-size: 1.85rem;
-    color: white;
-    z-index: 1;
-}
-
-main .thirdGoal h1{
-    width: 80%;
-    z-index: 3;
-    text-align: end;
-}
-
-main .thirdGoal p{
-    z-index: 3;
-    width: 80%;
-    text-align: justify;
-}
-
-main .thirdGoal::before{
-    width: 100%;
-    height: 100vh;
-    content: "";
-    position: absolute;
-    background-color: rgba(1, 25, 27, 0.76);
-   
-}
-
-main .about{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-}
-
-main .about .text{
-    width: 51%;
-    height: 100%;
-    display: flex;
-    font-size: 1.78rem;
-    line-height: 40px;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFFF;
-    text-align: justify;
-    background-color: #063941;
-    background-image: linear-gradient(168deg, #063941 0%, #052b31 33%, #00141e 66%, #00090e 100%);
-
-}
-
-main .about .text span{
-    width: 80%;
-    height: 70%;
-}
-
-main .about .image{
-    width:49%;
-    height: 100%;
-    background-image: url("./waves.webp");
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-clip: content-box;
-    position: relative;
-    background-attachment:fixed; 
-}
-
-main .about .image::before{
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    background-color: rgba(2, 77, 80, 0.226);
-
-}
-
-footer{
-    width: 100%;
-    height: 100vh;
 }
 
 footer {
+  width: 100%;
+  height: 100vh;
+}
+
+footer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+footer .text {
+  width: 49%;
+  height: 100%;
+  background-color: #063941;
+  background-image: linear-gradient(
+    168deg,
+    #00090e 0%,
+    #00141e 33%,
+    #052b31 66%,
+    #063941 100%
+  );
+  background-attachment: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  color: #ffffff;
+}
+
+footer .text h1 {
+  position: absolute;
+  top: 10%;
+}
+
+footer .text .wrapper-icons {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-evenly;
+  position: absolute;
+  left: 10%;
+  height: 50%;
+  width: 80%;
+}
+
+footer .text .wrapper-icons .div-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+  font-size: 1.25rem;
+  letter-spacing: 1.1px;
+  justify-content: space-evenly;
+}
+
+footer .text .wrapper-icons .div-icons:nth-child(1) .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-image: url("./icons8-whatsapp-144.png");
+  background-size: contain;
+}
+
+footer .text .wrapper-icons .div-icons:nth-child(2) .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-image: url("./icons8-instagram-144.png");
+  background-size: contain;
+}
+
+footer .text .wrapper-icons .div-icons:nth-child(3) .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-image: url("./icons8-facebook-novo-144.png");
+  background-size: contain;
+}
+
+footer .image {
+  width: 51%;
+  height: 100%;
+  background-image: url("./wavesFooter.webp");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .image::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(2, 77, 80, 0.226);
+}
+
+footer .image .googleMaps {
+  background-color: rgba(1, 135, 156, 0.534);
+  width: 78%;
+  height: 85.5%;
+  border: 1px solid rgba(0, 255, 255, 0.179);
+  z-index: 4;
+}
+
+footer .image .googleMaps iframe {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 576px) {
+  nav ul {
+    width: 75%;
+    justify-content: center;
+    gap: 45px;
+    text-align: center;
+  }
+
+  nav span {
+    width: 12.5%;
+  }
+
+  nav .span-button {
+    width: 12.5%;
+  }
+
+  nav span button {
     width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-}
+    padding: 10px 0;
+    font-size: 0.85rem;
+  }
 
-footer  .text{
-    width: 49%;
-    height: 100%;
-    background-color: #063941;
-    background-image: linear-gradient(168deg, #00090e 0%, #00141e 33%, #052b31 66%, #063941 100%);
-    background-attachment:fixed;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  main .presentation {
     flex-direction: column;
-    position: relative;
-    color: #FFFFFF;
-}
+    justify-content: center;
+    gap: 25px;
+  }
 
-footer .text h1{
-    position: absolute;
-    top: 10%;
-}
+  main .presentation .fish {
+    width: 200px;
+    height: 200px;
+  }
 
-footer .text .wrapper-icons{
-    display: flex;
+  main .presentation p:nth-child(1) {
+    color: white;
+    z-index: 2;
+    font-size: 4.75rem;
+    margin-top: -1.5%;
+    text-align: center;
+  }
+
+  main .presentation p:nth-child(2) {
+    font-size: 1rem;
+    margin-top: -0.5%;
+    text-align: center;
+    z-index: 2;
+    color: white;
+  }
+
+  main .goals {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     gap: 30px;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: space-evenly;
-    position: absolute;
-    left: 10%;
-    height: 50%;
-    width: 80%;
-}
+  }
 
-footer .text .wrapper-icons .div-icons{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 50%;
-    font-size: 1.25rem;
-    letter-spacing: 1.1px;
-    justify-content: space-evenly;
-    
-}
+  main .goals .balls {
+    width: 200px;
+    height: 200px;
+  }
 
-footer .text .wrapper-icons .div-icons:nth-child(1) .icon{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    background-image: url("./icons8-whatsapp-144.png");
-    background-size: contain;
-}
+  main .goals .balls::after {
+    width: 200px;
+    height: 200px;
+  }
 
+  main .firstGoal h1,
+  main .firstGoal p,
+  main .secondGoal h1,
+  main .secondGoal p,
+  main .thirdGoal h1,
+  main .thirdGoal p {
+    width: 90%;
+  }
 
-footer .text .wrapper-icons .div-icons:nth-child(2) .icon{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    background-image: url("./icons8-instagram-144.png");
-    background-size: contain;
-}
+  main .firstGoal h1,
+  main .secondGoal h1,
+  main .thirdGoal h1 {
+    font-size: 2.5rem;
+  }
 
+  main .firstGoal p,
+  main .secondGoal p,
+  main .thirdGoal p {
+    font-size: 1.1rem;
+    line-height: 32px;
+  }
 
+  main .about .text {
+    display: none;
+  }
 
-footer .text .wrapper-icons .div-icons:nth-child(3) .icon{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    background-image: url("./icons8-facebook-novo-144.png");
-    background-size: contain;
-}
-
-
-footer  .image{
-    width:51%;
-    height: 100%;
-    background-image: url("./wavesFooter.webp");
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    background-attachment:fixed;
+  main .about .image {
+    width: 100%;
+    background-position: 40%;
     display: flex;
     justify-content: center;
-    align-items: center;
-}
+  }
 
-footer  .image::before{
+  main .about .image::before{
+    background-color: rgba(1, 28, 29, 0.5);
     content: "";
     width: 100%;
     height: 100%;
     position: absolute;
-    z-index: 1;
-    background-color: rgba(2, 77, 80, 0.226);
+    z-index: 3;
+  }
+
+
+
+  main .about .image p{
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    justify-content: center;
+    font-size: 1.45rem ;
+    color: white;
+    position: relative;
+    width: 90%;
+    z-index: 10;
 }
 
-footer .image .googleMaps{
-    background-color: rgba(1, 135, 156, 0.534);
-    width: 78%;
-    height: 85.5%;
-    border: 1px solid rgba(0, 255, 255, 0.179);
-    z-index: 4;
+  footer {
+    flex-direction: column;
+  }
+
+  footer .text .wrapper-icons .div-icons .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  footer .text,
+  footer .image,
+  footer .image::before {
+    width: 100%;
+  }
+
+  footer .image {
+    height: 70% !important;
+  }
+  footer .text {
+    height: 30%;
+    justify-content: center;
+  }
+
+  footer .text .wrapper-icons {
+    flex-direction: row;
+    gap: 10px;
+    top: 35%;
+  }
+
+  footer .text .wrapper-icons .div-icons {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-footer .image .googleMaps iframe{
-   width: 100%;
-   height: 100%;
+@media (min-width: 577px) and (max-width: 768px) {
+  main .presentation {
+    gap: 0.5%;
+  }
+
+  main .presentation .fish {
+    width: 270px;
+    height: 270px;
+  }
+
+  main .goals {
+    display: flex;
+  }
+
+  main .goals .balls {
+    width: 200px;
+    height: 200px;
+  }
+
+  main .presentation p:nth-child(1) {
+    font-size: 3.8rem;
+  }
+
+  main .firstGoal h1,
+  main .secondGoal h1,
+  main .thirdGoal h1 {
+    font-size: 3rem;
+  }
+
+  main .firstGoal p,
+  main .secondGoal p,
+  main .thirdGoal p {
+    font-size: 1.15rem;
+  }
+
+  main .about .text {
+    display: none;
+  }
+
+  main .about .image {
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+
+  footer .text {
+    width: 100%;
+    height: 20%;
+  }
+
+  footer .image {
+    width: 100%;
+  }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 769px) and (max-width: 992px) {
+  main .presentation {
+    gap: 0.5%;
+  }
 
-    nav ul{
-        width: 75%;
-        justify-content: center;
-        gap: 45px;
-        text-align: center;
-    }
+  main .goals .balls {
+    width: 250px;
+    height: 250px;
+  }
 
-    nav span{
-        width: 12.5%;
-    }
+  main .about .text {
+    width: 60%;
+  }
 
-    nav .span-button{
-        width: 12.5%;
-    }
+  main .about .image {
+    width: 40%;
+  }
 
-    nav span button{
-        width: 100%;
-        padding: 10px 0;
-        font-size: 0.85rem;
-    }
+  footer .text {
+    width: 40%;
+  }
 
-    main .presentation{
-        flex-direction: column;
-        justify-content: center;
-        gap: 25px;
-    }
-
-    main .presentation .fish{
-        width: 200px;
-        height: 200px;
-    }
-
-    main .presentation p:nth-child(1){
-        color: white;
-        z-index: 2;
-        font-size: 4.75rem;
-        margin-top: -1.5%;
-        text-align: center;
-    }
-    
-    main .presentation p:nth-child(2){
-        font-size: 1.0rem;
-        margin-top:-0.5% ;
-        text-align: center;
-        z-index: 2;
-        color: white;
-    }
-
-    main .goals{
-        flex-direction: column;
-        justify-content:space-around;
-        align-items: center;
-        gap: 30px;
-    }
-
-    main .goals .balls{
-        width: 200px;
-        height: 200px;
-    }
-
-    main .goals .balls::after{
-        width: 200px;
-        height: 200px;
-    }
-
-
-    main .firstGoal h1, main .firstGoal p, main .secondGoal h1, main .secondGoal p, main .thirdGoal h1, main .thirdGoal p{
-        width: 90%;
-    }
-
-    main .firstGoal h1, main .secondGoal h1, main .thirdGoal h1{
-        font-size: 2.5rem;
-    }
-
-    main .firstGoal p, main .secondGoal p, main .thirdGoal p{
-        font-size: 1.1rem;
-        line-height: 32px;
-    }
-
-    main .about .text{
-        display: none;
-    }
-
-    main .about .image{
-        width: 100%;
-        background-position: 40%;
-    }
-
-    footer{
-        flex-direction: column;
-    }
-
-    footer .text .wrapper-icons .div-icons .icon{
-        width: 40px;
-        height: 40px;
-    }
-
-    footer  .text, footer .image, footer .image::before{
-        width: 100%;
-    }
-
-    footer .image{
-        height: 70% !important;
-    }
-    footer .text{
-        height: 30%;
-        justify-content: center;
-    }
-
-
-    footer .text .wrapper-icons{
-        flex-direction: row;
-        gap: 10px;
-        top:35%;
-    }
-
-    footer .text .wrapper-icons .div-icons{
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-@media (min-width:577px) and (max-width:768px){
-    main .presentation{
-        gap: 0.5%;
-    }
-
-    main .presentation .fish{
-        width: 270px;
-        height: 270px;
-    }
-
-    main .goals{
-        display: flex;
-    }
-
-    main .goals .balls{
-        width: 200px;
-        height: 200px;
-    }
-
-    main .presentation p:nth-child(1){
-        font-size: 3.8rem;
-    }
-
-    
-
-    main .firstGoal h1, main .secondGoal h1, main .thirdGoal h1{
-        font-size: 3rem;
-    }
-
-    main .firstGoal p, main .secondGoal p, main .thirdGoal p{
-        font-size: 1.15rem;
-    }
-
-    main .about .text{
-        display: none;
-    }
-
-    main .about .image{
-        width: 100%;
-    }
-    
-
-    footer{
-        flex-direction: column;
-    }
-
-    footer .text{
-        width: 100%;
-        height: 20%;
-    }
-
-    footer .image{
-        width: 100%;
-    }
-}
-
-@media (min-width:769px) and (max-width:992px){
-
-    main .presentation{
-        gap: 0.5%;
-    }
-
-
-    main .goals .balls{
-        width: 250px;
-        height: 250px;
-    }
-
-    main .about .text{
-        width: 60%;
-    }
-
-    main .about .image{
-        width: 40%;
-    }
-
-    footer .text{
-        width: 40%;
-    }
-
-    footer .image{
-        width: 60%;
-    }
-    footer .image .googleMaps{
-        width: 85%;
-    }
+  footer .image {
+    width: 60%;
+  }
+  footer .image .googleMaps {
+    width: 85%;
+  }
 }
